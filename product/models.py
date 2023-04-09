@@ -7,8 +7,8 @@ class ProductModel(models.Model):
     class Meta:
         db_table = "product"
 
-    seller = models.ForeignKey(UserModel, on_delete=models.CASCADE)
-    code = models.CharField(max_length=256)
+    user = models.ForeignKey(UserModel, on_delete=models.CASCADE)
+    code = models.CharField(max_length=256, unique=True, primary_key=True)
     prod_name = models.CharField(max_length=256)
     desc = models.CharField(max_length=256)
     price = models.IntegerField()
